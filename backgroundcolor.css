@@ -1,0 +1,23 @@
+body{
+  min-height: 100vh;  /* 画面幅いっぱいに */
+}
+
+.setcolormain{
+  background: #005731; /*背景を深緑に*/
+  width: 20%;
+  min-height: 100vh;  /* 画面幅いっぱいに */
+  color: white;
+  text-align: center;
+  border-bottom: white;
+  border-width: 3px;
+}
+.colorsetfont{
+  color: white;
+}
+.colorsetborder-{
+  border-bottom: white;
+  border-width: 3px;
+}
+.colorsetborder{
+  border-bottom: white;
+}
