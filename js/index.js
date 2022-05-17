@@ -1,10 +1,12 @@
-document.getElementById("back-button").onclick = function() {
-    history.back();
-     return false
-};
 
-document.getElementById("forward-button").onclick = function() {
-    history.go(1);
-    return false
-};
   
+window.onload = function(){
+    var backbutton = document.getElementById("back-button");
+    backbutton.onclick = backprocess; 
+}
+
+function backprocess(){
+    history.back();
+    console.log("aaaaaa")
+    return false
+}

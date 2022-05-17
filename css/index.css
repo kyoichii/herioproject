@@ -1,19 +1,10 @@
-.back-button {
-    display: flex;
-}
-
-.forward-button {
-    display: flex;
-}
-
-.colorsetmain {
-    /*背景を深緑に*/
+body {
+    width: 350px;
+    height: 500px;
     background: #005731;
-    width: 20%;
-    /* 画面幅いっぱいに */
-    min-height: 100vh;
     color: white;
     text-align: center;
-    border-bottom: white;
-    border-width: 3px;
+}
+.clickbutton {
+    display: flex;
 }
