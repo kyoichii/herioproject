@@ -2,6 +2,13 @@ body{
   min-height: 100vh;  /* 画面幅いっぱいに */
 }
 
+.title{
+  font-size: 45px;
+  text-align: center;
+  text-decoration:underline;/*下線を引く*/
+  text-decoration-color:green;/*下線を赤色*/
+}
+
 .setcolormain{
   background: #005731; /*背景を深緑に*/
   width: 20%;
@@ -28,6 +35,19 @@ body{
   font-weight: bold;
   border: solid 2px #000000;
 }
+
+.card-title{
+  font-size: 35px;
+}
+
+.card-text{
+  font-size: 30px;
+}
+
+.btn-primary{
+  font-size: 25px;
+}
+
 .card p {
   margin: 0; 
   padding: 0;
@@ -36,4 +56,5 @@ body{
 .test{
   display: flex;
   text-align: center;
+  justify-content: space-around;
 }
