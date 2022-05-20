@@ -21,3 +21,19 @@ body{
 .colorsetborder{
   border-bottom: white;
 }
+
+.card {
+  padding: 0.5em 1em;
+  margin: 15px 15px;
+  font-weight: bold;
+  border: solid 2px #000000;
+}
+.card p {
+  margin: 0; 
+  padding: 0;
+}
+
+.test{
+  display: flex;
+  text-align: center;
+}
