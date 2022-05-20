@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="js/index.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <button type = "button"><div id="back-button"><p id="text">戻る</p></div></button>
-    <button type = "button"><div id="forward-button"><p id="text">進む</p></div></button>
+    <button type = "button"><div id="back-button">戻る</button></div>
+    <button type = "button"><div id="forward-button">進む</button></div><br>
+
+    <script>
+        let x = 100;
+        function larger()  { x *= 1.2; document.body.style.fontSize = x + '%'; }
+        function smaller() { x /= 1.2; document.body.style.fontSize = x + '%'; }
+    </script>
+          
+    <button type="button"> <div id="lager-button">小さく</button></div>
+    <button type="button"><div id="smaller-button">大きく</button></div>
+    <p>test</p>
 </body>
 </html>
