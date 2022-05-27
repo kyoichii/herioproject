@@ -36,7 +36,24 @@ function cssadd(tagname) {
 function htmladd(){
     var html = "";
     html = "<h2>Sylvanian Extension</h2>";
-    html += "<a href='#' target='_brank'>よく使うもの</a>";
+    html +="<div class ='text'>";
+    html += "<a href='#' target='_brank'>よく使うもの</a></div>";
+    html += "<div class=colorsetmain>";
+    html += "<div class ='text'>";
+    html += "<button type='button'>前のページに戻る　↲</button>";
+    html += "</div>";
+    html += "<div class ='text'";
+    html += "<button type='button'>次のページへ進む　↱</button>";
+    html += "</div>";
+    html += "<div class='word-huge-change'>";
+    html += "<div class ='text'><p>文字サイズ変更</p></div>";
+    html += "<div id='button'>";
+    html += "<div class='m-button'><button type='button'>－</button></div>";
+    html += "<div class='p-button'><button type='button'>+</button></div>";
+    html += "</div>";
+    html += "</div>";
+    html += "</div>";
+
     // 拡張機能のhtml文追加
     $("#newhtml").prepend(html);
 }
@@ -45,4 +62,17 @@ function htmladd(){
 function excssadd(){
     $('#newhtml').css('background', '#005731');
     $('#newhtml').css('color', 'white');
+    $('h2').css('font-weight','bold');
+    $('h2').css('border-bottom','1px solid white');
+    $('.colorsetfont').css('color','white');
+    $('#button').css('display','flex');
+    $('#button').css('text','50px');
+    $('.text').css('text-align','center');
+    $('#button').css('justify-content','space-evenly');
+    $('.p-button').css('border','solid 2px white');
+    $('.p-button').css('height','25px');
+    $('.p-button').css('width','15px');
+    $('.m-button').css('border','solid 2px white');
+    $('.m-button').css('width','15px');
+    $('.m-button').css('height','25px');
 }
