@@ -9,6 +9,11 @@ body{
   text-decoration-color:green;/*下線を赤色*/
 }
 
+.btn-success{
+  position:relative;
+  left:400px;
+}
+
 .setcolormain{
   background: #005731; /*背景を深緑に*/
   width: 20%;
