@@ -10,13 +10,18 @@ $(function () {
     // aタグのクリックアクション
     $(document).ready(function () {
         $("#newhtml").find("a").click(function () {
-            location.href = "http://nt24.ecc.ac.jp/~ie4a05/herioproject/favorite.html";
+            location.href = "http://nt24.ecc.ac.jp/~ie4a05/herioproject/html/favorite.html";
             console.log("クリック！");
             return false;
         })
     })
     //拡張機能のcss
     excssadd();
+    var script = $('<script>').attr({
+        'type': 'text/javascript',
+        'src': 'http://nt24.ecc.ac.jp/~ie4a05/herioproject/js/jsontest.js'
+    });
+    $('body')[0].appendChild(script[0]);
 })
 
 //本体に拡張機能の要素を追加
@@ -33,7 +38,7 @@ function cssadd(tagname) {
 }
 
 //拡張機能のhtml追加
-function htmladd(){
+function htmladd() {
     var html = "";
     html = "<h2>Sylvanian Extension</h2>";
     html += "<a href='#' target='_brank'>よく使うもの</a>";
@@ -42,7 +47,7 @@ function htmladd(){
 }
 
 //拡張機能のcss追加
-function excssadd(){
+function excssadd() {
     $('#newhtml').css('background', '#005731');
     $('#newhtml').css('color', 'white');
 }
