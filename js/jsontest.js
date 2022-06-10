@@ -1,7 +1,7 @@
 $(function () {
     $.ajax({ // json読み込み開始
         type: 'GET',
-        url: 'http://nt24.ecc.ac.jp/~ie4a05/herioproject/urllink.json',
+        url: 'http://127.0.0.1/urllink.json',
         dataType: 'json'
     })
         .then(
