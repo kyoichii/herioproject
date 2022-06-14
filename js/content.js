@@ -1,7 +1,11 @@
+//現在の文字の大きさを格納する変数
+var mojisize = 0;
+
 $(function () {
     console.log("コンテントスクリプトだよ");
     // div要素のclass名を取得
     var className = $("div").attr("class");
+    
     console.log(className);
     //関数cssadd呼び出し
     cssadd(className);
@@ -17,7 +21,29 @@ $(function () {
     })
     //拡張機能のcss
     excssadd();
+    //プラスボタン処理
+    $('.p-button').on('click', function() {
+        mojichange(className, 1, mojisize);
+    });
+    //マイナスボタン処理
+    $('.m-button').on('click', function() {
+        mojichange(className, 2, mojisize);
+    });
+
+
 })
+
+//文字の大きさを変更する関数
+function mojichange(className,flg,nowsize){
+    
+    if(flg == 1){
+        nowsize += 30;
+    }else if(flg ==2){
+        nowsize -= 30;
+    }
+    $("." + className).css('font-size', nowsize);
+    mojisize = nowsize;
+}
 
 //本体に拡張機能の要素を追加
 function cssadd(tagname) {
@@ -40,7 +66,6 @@ function htmladd(){
         html += "<div class='word-huge-change'>";
             html += "<a href='#' target='_brank'>よく使うもの</a><br>";
             html += "<div class=colorsetmain>";
-                html += "<div id ='text'>";
                     html += "<button type='button class='back'>前のページに戻る　↲</button>";
                 html += "</div>";
                 html += "<div id ='text'>";
@@ -83,3 +108,29 @@ function excssadd(){
     $('.m-button').css('width','15px');
     $('.m-button').css('height','25px');
 }
+// //プラスを押したとき
+// $('.p-button').on('click', function() {
+//         console.log('ｐ');
+//         $("#fontSize ul li").removeClass("current");
+//         var fontCss = $(this).attr("class");
+//             $(this).addClass("current");
+//             if(fontCss == "large"){
+//               $("body").css("fontSize","1.4em");
+//               data = "large";
+//               localStorage.setItem(key,data);
+//             }else if(fontCss == "middle"){
+//               $("body").css("fontSize","1.2em");
+//               data = "middle";
+//               localStorage.setItem(key,data);
+//             }else{
+//               $("body").css("fontSize","1em");
+//               data = "small";
+//               localStorage.setItem(key,data);
+//             }
+//          });
+//          $('#fontSize ul li.'+data).trigger('click');
+// });
+// //マイナスを押したとき
+// function minus(){
+//     className
+// }
