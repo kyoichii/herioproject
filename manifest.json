@@ -13,8 +13,7 @@
     "content_scripts": [
         {
             "matches": [
-                "https://www.google.com/",
-                "https://qiita.com/"
+                "<all_urls>"
             ],
             "js": [
                 "js/jquery-3.6.0.min.js",

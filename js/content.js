@@ -27,6 +27,7 @@ $(function () {
         //Cokkieの値取得
         let backurl = getCookie('backurl')
         console.log('backurl:' + backurl)
+        // window.history.back();
     })
 
     //進むボタンclickイベント
@@ -35,6 +36,7 @@ $(function () {
         //Cokkieの値取得
         let moveurl = getCookie('moveurl')
         console.log('moveurl:' + moveurl)
+        window.history.forward();
     });
 })
 
@@ -46,7 +48,7 @@ function Cookiesave() {
         //一つ前のurlをmoveurlに格納して現在のurlをnowurlに格納
         document.cookie = 'nowurl=' + nowurl
 
-        
+
         // //値を隠してCookie保存 (のちにパスワード保存のとこで使うかもしれないので保管。)
         // let name = encodeURIComponent('田中')
         // document.cookie = 'name=' + name
@@ -60,8 +62,10 @@ function getCookie(value) {
     var cookiesArray = cookies.split(';');              // ;で分割し配列に
     for (var c of cookiesArray) {                       //一つ一つ取り出して
         var cArray = c.split('=');                      //さらに=で分割して配列に
+        console.log(cArray)
         if (cArray[0] == ' ' + value) {                 // 取り出したいkeyと合致したら
             return (cArray[1])                           //value値をreturnする
+            
         }
     }
 }
