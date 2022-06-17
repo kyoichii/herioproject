@@ -1,4 +1,3 @@
-
 //現在の文字の大きさを格納する変数
 var mojisize = 0;
 
@@ -6,7 +5,7 @@ $(function () {
     console.log("コンテントスクリプトだよ");
     // div要素のclass名を取得
     var className = $("div").attr("class");
-    
+
     console.log(className);
     //関数cssadd呼び出し
     cssadd(className);
@@ -17,7 +16,7 @@ $(function () {
     //履歴htmlのcss
     ricss();
     // aタグのクリックアクション
-  
+
     // よく使うものクリックアクション
     $(document).ready(function () {
         $("#newhtml").find("a").click(function () {
@@ -35,27 +34,27 @@ $(function () {
     //backボタンclickイベント
     $('.back').on('click', function () {
         console.log('戻るボタンクリック')
-        //Cokkieの値取得
-        let backurl = getCookie('backurl')
-        console.log('backurl:' + backurl)
-        // window.history.back();
+        // // //Cokkieの値取得
+        // let backurl = getCookie('backurl')
+        // console.log('backurl:' + backurl)
+        window.history.back();
     })
 
     //進むボタンclickイベント
     $('.next').on('click', function () {
         console.log('進むボタンクリック');
-        //Cokkieの値取得
-        let moveurl = getCookie('moveurl')
-        console.log('moveurl:' + moveurl)
+        // //Cokkieの値取得
+        // let moveurl = getCookie('moveurl')
+        // console.log('moveurl:' + moveurl)
         window.history.forward();
     });
-  
+
     //プラスボタン処理
-    $('.p-button').on('click', function() {
+    $('.p-button').on('click', function () {
         mojichange(className, 1, mojisize);
     });
     //マイナスボタン処理
-    $('.m-button').on('click', function() {
+    $('.m-button').on('click', function () {
         mojichange(className, 2, mojisize);
     });
 })
@@ -84,17 +83,17 @@ function getCookie(value) {
         console.log(cArray)
         if (cArray[0] == ' ' + value) {                 // 取り出したいkeyと合致したら
             return (cArray[1])                           //value値をreturnする
-            
+
         }
     }
- }
+}
 
 //文字の大きさを変更する関数
-function mojichange(className,flg,nowsize){
-    
-    if(flg == 1){
+function mojichange(className, flg, nowsize) {
+
+    if (flg == 1) {
         nowsize += 30;
-    }else if(flg ==2){
+    } else if (flg == 2) {
         nowsize -= 30;
     }
     $("." + className).css('font-size', nowsize);
@@ -119,26 +118,26 @@ function cssadd(tagname) {
 function htmladd() {
     var html = "";
     html = "<h1>Sylvanian Extension</h1>";
-    html +="<div id ='text'>";
-        html += "<div class='word-huge-change'>";
-            html += "<a href='#' target='_brank'>よく使うもの</a><br>";
-            html += "<div class=colorsetmain>";
-                    html += "<button type='button class='back'>前のページに戻る　↲</button>";
-                html += "</div>";
-                html += "<div id ='text'>";
-                    html += "<button type='button class='next'>次のページへ進む　↱</button>";
-                html += "</div>";
-            html += "</div>";
-            html += "<div class ='text'><p>文字サイズ変更</p>";
-            html += "</div>";
-            html += "<div id='button'>";
-                html += "<button type='button' class='m-button'>-</button>";
-                html += "<button type='button' class='p-button'>+</button>";
-                html += "</div>";
-            html += "</div>";
-        html += "</div>";
+    html += "<div id ='text'>";
+    html += "<div class='word-huge-change'>";
+    html += "<a href='#' target='_brank'>よく使うもの</a><br>";
+    html += "<div class=colorsetmain>";
+    html += "<button type=button class='back'>前のページに戻る　↲</button>";
     html += "</div>";
-    
+    html += "<div id ='text'>";
+    html += "<button type=button class='next'>次のページへ進む　↱</button>";
+    html += "</div>";
+    html += "</div>";
+    html += "<div class ='text'><p>文字サイズ変更</p>";
+    html += "</div>";
+    html += "<div id='button'>";
+    html += "<button type='button' class='m-button'>-</button>";
+    html += "<button type='button' class='p-button'>+</button>";
+    html += "</div>";
+    html += "</div>";
+    html += "</div>";
+    html += "</div>";
+
     // 拡張機能のhtml文追加
     $("#newhtml").prepend(html);
 }
@@ -147,8 +146,8 @@ function htmladd() {
 function excssadd() {
     $('#newhtml').css('background', '#005731');
     $('#newhtml').css('color', 'white');
-  　　　　$('h1').css('font-weight','bold');
-    $('h1').css('border-bottom','1px solid white');
+    $('h1').css('font-weight', 'bold');
+    $('h1').css('border-bottom', '1px solid white');
     $('h2').css('font-weight', 'bold');
     $('h2').css('border-bottom', '1px solid white');
     $('.colorsetmain').css('color', 'white');
@@ -161,13 +160,13 @@ function excssadd() {
     $('.p-button').css('height', '25px');
     $('.p-button').css('width', '15px');
     $('.p-button').css('margin: 50px auto 0 auto');
-    $('.m-button').css('border','solid 2px white');
-    $('.m-button').css('width','15px');
-    $('.m-button').css('height','25px');
+    $('.m-button').css('border', 'solid 2px white');
+    $('.m-button').css('width', '15px');
+    $('.m-button').css('height', '25px');
 }
 
 // 拡張機能の履歴機能html追加
-function rihtml(){
+function rihtml() {
     var rihtml = ""
     rihtml += "<div class ='rireki'><hr></div>";
     rihtml += "<table border=1 bgcolor=white width=98%>";
