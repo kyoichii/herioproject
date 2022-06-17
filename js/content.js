@@ -148,10 +148,11 @@ function excssadd() {
     $('#newhtml').css('color', 'white');
     $('h1').css('font-weight', 'bold');
     $('h1').css('border-bottom', '1px solid white');
-    $('h2').css('font-weight', 'bold');
-    $('h2').css('border-bottom', '1px solid white');
+    $('h1').css('text-align', 'center');
     $('.colorsetmain').css('color', 'white');
     $('.back').css('line-height', '2ex');
+    $('.back').css('background', 'rgb(0, 87, 49)');
+    $('.next').css('background', 'rgb(0, 87, 49)');
     $('#button').css('display', 'flex');
     $('#button').css('text', '50px');
     $('#button').css('justify-content', 'space-evenly');
@@ -159,7 +160,8 @@ function excssadd() {
     $('.p-button').css('border', 'solid 2px white');
     $('.p-button').css('height', '25px');
     $('.p-button').css('width', '15px');
-    $('.p-button').css('margin: 50px auto 0 auto');
+    $('.p-button').css('background','rgb(0, 87, 49)');
+    $('.m-button').css('background', 'rgb(0, 87, 49)');
     $('.m-button').css('border', 'solid 2px white');
     $('.m-button').css('width', '15px');
     $('.m-button').css('height', '25px');
@@ -210,6 +212,7 @@ function rihtml() {
 
 // 拡張機能の履歴機能css追加
 function ricss() {
+    $('table').css('color', 'black');
     $('thead').css('display', 'block');
     $('tbody').css('display', 'block');
     $('tbody').css('overflow-x', 'hidden');
