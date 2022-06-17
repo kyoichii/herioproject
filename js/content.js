@@ -1,3 +1,4 @@
+
 //現在の文字の大きさを格納する変数
 var mojisize = 0;
 
@@ -11,6 +12,12 @@ $(function () {
     cssadd(className);
     //拡張機能のhtml
     htmladd();
+    //拡張機能の履歴html追加
+    rihtml();
+    //履歴htmlのcss
+    ricss();
+    // aタグのクリックアクション
+  
     // よく使うものクリックアクション
     $(document).ready(function () {
         $("#newhtml").find("a").click(function () {
@@ -105,6 +112,7 @@ function cssadd(tagname) {
     $('#html').css('height', '100%');
     //追加したdivにさらにメイン機能の拡張機能のdiv追加
     $("#html").prepend('<div id = "newhtml"></div>');
+    $("#newhtml").prepend('<div id = "rirekihtml"></div>');
 }
 
 //拡張機能のhtml追加
@@ -130,7 +138,7 @@ function htmladd() {
             html += "</div>";
         html += "</div>";
     html += "</div>";
-
+    
     // 拡張機能のhtml文追加
     $("#newhtml").prepend(html);
 }
@@ -153,7 +161,61 @@ function excssadd() {
     $('.p-button').css('height', '25px');
     $('.p-button').css('width', '15px');
     $('.p-button').css('margin: 50px auto 0 auto');
-    $('.m-button').css('border', 'solid 2px white');
-    $('.m-button').css('width', '15px');
-    $('.m-button').css('height', '25px');
+    $('.m-button').css('border','solid 2px white');
+    $('.m-button').css('width','15px');
+    $('.m-button').css('height','25px');
+}
+
+// 拡張機能の履歴機能html追加
+function rihtml(){
+    var rihtml = ""
+    rihtml += "<div class ='rireki'><hr></div>";
+    rihtml += "<table border=1 bgcolor=white width=98%>";
+    rihtml += "<thead>";
+    rihtml += "<tr>";
+    rihtml += "<th>操作履歴</th></tr></thead>";
+    rihtml += "<tbody>";
+    rihtml += "<tr>";
+    rihtml += "<td>ここに表示</td></tr>";
+    rihtml += "<tr>";
+    rihtml += "<td>ここに表示</td></tr>";
+    rihtml += "<tr>";
+    rihtml += "<td>ここに表示</td></tr>";
+    rihtml += "<tr>";
+    rihtml += "<td>ここに表示</td></tr>";
+    rihtml += "<tr>";
+    rihtml += "<td>ここに表示</td></tr>";
+    rihtml += "<tr>";
+    rihtml += "<td>ここに表示</td></tr>";
+    rihtml += "<tr>";
+    rihtml += "<td>ここに表示</td></tr>";
+    rihtml += "<tr>";
+    rihtml += "<td>ここに表示</td></tr>";
+    rihtml += "<tr>";
+    rihtml += "<td>ここに表示</td></tr>";
+    rihtml += "<tr>";
+    rihtml += "<td>ここに表示</td></tr>";
+    rihtml += "<tr>";
+    rihtml += "<td>ここに表示</td></tr>";
+    rihtml += "<tr>";
+    rihtml += "<td>ここに表示</td></tr>";
+    rihtml += "<tr>";
+    rihtml += "<td>ここに表示</td></tr>";
+    rihtml += "<tr>";
+    rihtml += "<td>ここに表示</td></tr>";
+    rihtml += "<tr>";
+    rihtml += "<td>ここに表示</td></tr></tbody>";
+    $("#rirekihtml").prepend(rihtml);
+}
+
+
+// 拡張機能の履歴機能css追加
+function ricss() {
+    $('thead').css('display', 'block');
+    $('tbody').css('display', 'block');
+    $('tbody').css('overflow-x', 'hidden');
+    $('tbody').css('overflow-y', 'scroll');
+    $('tbody').css('height', '200px');
+    $('th').css('width', '195px');
+    $('td').css('width', '200px');
 }
