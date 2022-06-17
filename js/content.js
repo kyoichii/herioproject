@@ -1,7 +1,11 @@
+//現在の文字の大きさを格納する変数
+var mojisize = 0;
+
 $(function () {
     console.log("コンテントスクリプトだよ");
     // div要素のclass名を取得
     var className = $("div").attr("class");
+    
     console.log(className);
     //関数cssadd呼び出し
     cssadd(className);
@@ -38,8 +42,16 @@ $(function () {
         console.log('moveurl:' + moveurl)
         window.history.forward();
     });
+  
+    //プラスボタン処理
+    $('.p-button').on('click', function() {
+        mojichange(className, 1, mojisize);
+    });
+    //マイナスボタン処理
+    $('.m-button').on('click', function() {
+        mojichange(className, 2, mojisize);
+    });
 })
-
 
 //ページが読み込まれたときにCookieの値を保存する関数
 function Cookiesave() {
@@ -68,6 +80,18 @@ function getCookie(value) {
             
         }
     }
+ }
+
+//文字の大きさを変更する関数
+function mojichange(className,flg,nowsize){
+    
+    if(flg == 1){
+        nowsize += 30;
+    }else if(flg ==2){
+        nowsize -= 30;
+    }
+    $("." + className).css('font-size', nowsize);
+    mojisize = nowsize;
 }
 
 //本体に拡張機能の要素を追加
@@ -86,21 +110,25 @@ function cssadd(tagname) {
 //拡張機能のhtml追加
 function htmladd() {
     var html = "";
-    html = "<h2>Sylvanian Extension</h2>";
-    html += "<div id ='text'>";
-    html += "<div class='word-huge-change'>";
-    html += "<a href='#' target='_brank'>よく使うもの</a><br>";
-    html += "</div>";
-    html += "<div class=colorsetmain>";
-    html += "<button type='button' class='back'>前のページに戻る　↲</button>";
-    html += "<button type='button' class='next'>次のページへ進む　↱</button>";
-    html += "<div class ='text'><p>文字サイズ変更</p></div>";
-    html += "<div id='button'>";
-    html += "<div class='m-button'><button type='button'>-</button>";
-    html += "</div>";
-    html += "<div class='p-button'><button type='button'>+</button>";
-    html += "</div>";
-    html += "</div>";
+    html = "<h1>Sylvanian Extension</h1>";
+    html +="<div id ='text'>";
+        html += "<div class='word-huge-change'>";
+            html += "<a href='#' target='_brank'>よく使うもの</a><br>";
+            html += "<div class=colorsetmain>";
+                    html += "<button type='button class='back'>前のページに戻る　↲</button>";
+                html += "</div>";
+                html += "<div id ='text'>";
+                    html += "<button type='button class='next'>次のページへ進む　↱</button>";
+                html += "</div>";
+            html += "</div>";
+            html += "<div class ='text'><p>文字サイズ変更</p>";
+            html += "</div>";
+            html += "<div id='button'>";
+                html += "<button type='button' class='m-button'>-</button>";
+                html += "<button type='button' class='p-button'>+</button>";
+                html += "</div>";
+            html += "</div>";
+        html += "</div>";
     html += "</div>";
 
     // 拡張機能のhtml文追加
@@ -111,6 +139,8 @@ function htmladd() {
 function excssadd() {
     $('#newhtml').css('background', '#005731');
     $('#newhtml').css('color', 'white');
+  　　　　$('h1').css('font-weight','bold');
+    $('h1').css('border-bottom','1px solid white');
     $('h2').css('font-weight', 'bold');
     $('h2').css('border-bottom', '1px solid white');
     $('.colorsetmain').css('color', 'white');
