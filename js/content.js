@@ -14,7 +14,7 @@ $(function () {
     // aタグのクリックアクション
     $(document).ready(function () {
         $("#newhtml").find("a").click(function () {
-            location.href = "http://nt24.ecc.ac.jp/~ie4a05/herioproject/favorite.html";
+            location.href = "http://nt24.ecc.ac.jp/~ie4a05/herioproject/html/favorite.html";
             console.log("クリック！");
             return false;
         })
@@ -29,8 +29,6 @@ $(function () {
     $('.m-button').on('click', function() {
         mojichange(className, 2, mojisize);
     });
-
-
 })
 
 //文字の大きさを変更する関数
@@ -59,7 +57,7 @@ function cssadd(tagname) {
 }
 
 //拡張機能のhtml追加
-function htmladd(){
+function htmladd() {
     var html = "";
     html = "<h1>Sylvanian Extension</h1>";
     html +="<div id ='text'>";
@@ -87,8 +85,8 @@ function htmladd(){
 }
 
 //拡張機能のcss追加
-function excssadd(){
-    $('#newhtml').css('background', '#005731');    
+function excssadd() {
+    $('#newhtml').css('background', '#005731');
     $('#newhtml').css('color', 'white');
     $('h1').css('font-weight','bold');
     $('h1').css('border-bottom','1px solid white');
@@ -108,29 +106,3 @@ function excssadd(){
     $('.m-button').css('width','15px');
     $('.m-button').css('height','25px');
 }
-// //プラスを押したとき
-// $('.p-button').on('click', function() {
-//         console.log('ｐ');
-//         $("#fontSize ul li").removeClass("current");
-//         var fontCss = $(this).attr("class");
-//             $(this).addClass("current");
-//             if(fontCss == "large"){
-//               $("body").css("fontSize","1.4em");
-//               data = "large";
-//               localStorage.setItem(key,data);
-//             }else if(fontCss == "middle"){
-//               $("body").css("fontSize","1.2em");
-//               data = "middle";
-//               localStorage.setItem(key,data);
-//             }else{
-//               $("body").css("fontSize","1em");
-//               data = "small";
-//               localStorage.setItem(key,data);
-//             }
-//          });
-//          $('#fontSize ul li.'+data).trigger('click');
-// });
-// //マイナスを押したとき
-// function minus(){
-//     className
-// }
