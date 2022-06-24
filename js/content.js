@@ -1,11 +1,11 @@
 //現在の文字の大きさを格納する変数
 var mojisize = 0;
 
+
 $(function () {
     console.log("コンテントスクリプトだよ");
     // div要素のclass名を取得
     var className = $("div").attr("class");
-
     console.log(className);
     //関数cssadd呼び出し
     cssadd(className);
@@ -21,15 +21,13 @@ $(function () {
     $(document).ready(function () {
         $("#newhtml").find("a").click(function () {
             //ブックマークページへ移動
-            location.href = "http://127.0.0.1/html/favorite.html";
+            location.href = "http://nt24.ecc.ac.jp/~ie4a05/herioproject/html/favorite.html";
             console.log("クリック！");
             return false;
         })
     })
     //拡張機能のcss
     excssadd();
-    //ページが読み込まれたときにCookieを保存する関数
-    Cookiesave();
 
     //backボタンclickイベント
     $('.back').on('click', function () {
@@ -57,16 +55,19 @@ $(function () {
     $('.m-button').on('click', function () {
         mojichange(className, 2, mojisize);
     });
+
+    //ブックマーク追加ボタン
+    $('.bookaddbutton').on('click', function () {
+        Cookiesave()
+    });
 })
 
 //ページが読み込まれたときにCookieの値を保存する関数
 function Cookiesave() {
+    console.log("Cookieに保存するよ!")
     var nowurl = $(location).attr('href');      //現在のurlを取得
     if (navigator.cookieEnabled) {
-        //一つ前のurlをmoveurlに格納して現在のurlをnowurlに格納
-        document.cookie = 'nowurl=' + nowurl
-
-
+        $.cookie = ('nowurl + "/"',{ expires : 365})
         // //値を隠してCookie保存 (のちにパスワード保存のとこで使うかもしれないので保管。)
         // let name = encodeURIComponent('田中')
         // document.cookie = 'name=' + name
@@ -126,6 +127,7 @@ function htmladd() {
     html += "</div>";
     html += "<div id ='text'>";
     html += "<button type=button class='next'>次のページへ進む　↱</button>";
+    html += "<button type = button class = 'bookaddbutton'>ブックマーク追加</button>"
     html += "</div>";
     html += "</div>";
     html += "<div class ='text'><p>文字サイズ変更</p>";
