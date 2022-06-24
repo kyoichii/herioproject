@@ -5,5 +5,7 @@
     "description": "高齢者が若者みたいにインターネットを使いこなしてもらえるようにと開発を行なっている拡張機能です。",
     "action": {
         "default_popup": "/html/index.html"
-    }
+    },
+
+    "permissions": ["tabs"]
 }
