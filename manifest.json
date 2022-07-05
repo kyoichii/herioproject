@@ -6,10 +6,6 @@
     "action": {
         "default_popup": "/html/index.html"
     },
-
-    "permissions": ["tabs"]
-        "default_popup": "/html/test.html"
-    },
     "permissions": [
         "tabs",
         "storage"
