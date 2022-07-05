@@ -20,7 +20,7 @@ $(function () {
     $(document).ready(function () {
         $("#newhtml").find("#usemenu").click(function () {
             //ブックマークページへ移動
-            location.href = "http://127.0.0.1/html/favorite.html";
+            location.href = "http://nt24.ecc.ac.jp/~ie4a05/herioproject/html/favorite.html";
             console.log("クリック！");
             return false;
         })
