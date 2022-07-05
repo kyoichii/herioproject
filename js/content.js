@@ -176,6 +176,7 @@ function rihtml() {
 
 // 拡張機能の履歴機能css追加
 function ricss() {
+    $('table').css('color', 'black');
     $('thead').css('display', 'block');
     $('tbody').css('display', 'block');
     $('tbody').css('overflow-x', 'hidden');
