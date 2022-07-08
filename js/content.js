@@ -1,3 +1,4 @@
+
 //現在の文字の大きさを格納する変数
 var mojisize = 0;
 
@@ -16,6 +17,8 @@ $(function () {
     rihtml();
     //履歴htmlのcss
     ricss();
+    //モーダルウインドウhtmlのcss
+    modalcss();
     // よく使うものクリックアクション
     $(document).ready(function () {
         $("#newhtml").find("#usemenu").click(function () {
@@ -46,12 +49,13 @@ $(function () {
 
     //プラスボタン処理
     $('.bigbutton').on('click', function () {
-        mojichange(className, 1, mojisize);
+        $('.modal-window').fadeIn();
     });
     //マイナスボタン処理
     $('.smallbutton').on('click', function () {
-        mojichange(className, 2, mojisize);
+        $('.modal-window2').fadeIn();
     });
+
 })
 
 //ページが読み込まれたときにCookieの値を保存する関数
@@ -82,17 +86,13 @@ function getCookie(value) {
     }
 }
 
-//文字の大きさを変更する関数
-function mojichange(className, flg, nowsize) {
 
-    if (flg == 1) {
-        nowsize += 30;
-    } else if (flg == 2) {
-        nowsize -= 30;
-    }
-    $("." + className).css('font-size', nowsize);
-    mojisize = nowsize;
-}
+//閉じるjQuery
+$(function () {
+    $('.js-close').click(function () {
+      $('#overlay, .modal-window').fadeOut();
+    });
+  });
 
 // //本体に拡張機能の要素を追加
 function cssadd() {
@@ -116,6 +116,13 @@ function htmladd() {
     html += "</div>"    //id = mojichangeの終端
     html += "<p id = 'rireki'>履歴</p>"
     html += "</div>"    //id = extensiontypeの終端
+    //モーダルウィンドウの追加部分
+    html += "<div class='modal-window'>"
+    html += ""
+    html += "<button class='js-close button-close'>閉じる</button>"
+    html += "</div>"
+    //オーバーレイの追加部分
+    //hmtl += "<div id='overlay' class='overlay'></div>"
     // 拡張機能のhtml文追加
     $("#newhtml").prepend(html);
 }
@@ -184,4 +191,39 @@ function ricss() {
     $('tbody').css('height', '200px');
     $('th').css('width', '195px');
     $('td').css('width', '200px');
+}
+//モーダルウインドウのcss追加
+function modalcss(){
+    $('.modal-window').css('display', 'none');
+    $('.modal-window').css('position', 'fixed');
+    $('.modal-window').css('top','50%');
+    $('.modal-window').css('left', '50%');
+    $('.modal-window').css('transform', 'translate(-50%, -50%)');
+    $('.modal-window').css('width', '300px');
+    $('.modal-window').css('height', '300px');
+    $('.modal-window').css('background-color', '#dfdddd');
+    $('.modal-window').css('border-radius', '5px');
+    $('.modal-window').css('z-index', '11');
+    $('.modal-window').css('padding', '2rem');
+    //閉じるボタン
+    $('.button-close').css('position', 'absolute');
+    $('.button-close').css('top', '50%');
+    $('.button-close').css('left', '50%');
+    $('.button-close').css('transform', 'translate(-50%, -50%)');
+    $('.button-close').css('width', '200px');
+    $('.button-close').css('padding', '1em');
+    $('.button-close').css('background-color', '#c96931');
+    $('.button-close').css('color', '#eaeaea');
+    $('.button-close').css('border-radius', '20rem');
+    $('.button-close').css('cursor', 'pointer');
+    /*オーバーレイ
+    $('.overlay').css('display', 'none');
+    $('.overlay').css('position', '');
+    $('.overlay').css('top', '0');
+    $('.overlay').css('left', '0');
+    $('.overlay').css('background-color', 'rgba(0, 0, 0, 0.5)');
+    $('.overlay').css('width', '100%');
+    $('.overlay').css('height', '100%');
+    $('.overlay').css('z-index', '10');
+    */
 }
