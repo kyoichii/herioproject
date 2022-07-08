@@ -6,6 +6,7 @@ $(function () {
     // div要素のclass名を取得
     var className = $("div").attr("class");
     console.log(className);
+    $("." + className).css('padding-top', '100px')
     $("body").prepend('<div id = "newhtml"></div>');
     $("#newhtml").after('<div></div>');
     //追加したdivのcssを編集
@@ -51,6 +52,18 @@ $(function () {
     //マイナスボタン処理
     $('.smallbutton').on('click', function () {
         mojichange(className, 2, mojisize);
+    });
+
+    //現在のページを追加する処理
+    $('.listadd').on('click', function () {
+        var nowurl = $(location).attr('href');      //現在のurlを取得
+        alert("現在のページをリストに追加します！" + nowurl)
+        getJSON('../uselist.json').then(function(r) {
+            //JSONファイルを読み込んだ後の処理
+            var config = JSON.parse(r);
+            console.log(config);
+        })
+
     });
 })
 
@@ -98,6 +111,7 @@ function mojichange(className, flg, nowsize) {
 function cssadd() {
     $("#newhtml").css('position', 'fixed')
     $("#newhtml").css('width', '100%')
+    $("#newhtml").css('height', '100px')
     $("#newhtml").css('z-index', '9999')
 }
 
@@ -105,7 +119,10 @@ function cssadd() {
 function htmladd() {
     var html = "<h1>Sylvanian Extension</h1>"
     html += "<div id = 'extensiontype'>"
-    html += "<p id = 'usemenu'>よく使うもの</p>"
+    html += "<div id = 'uselist'>"
+    html += "<p id = 'usemenu'>よく使うものリスト</p>"
+    html += "<div class = 'listadd' style = 'font-size:14px;'>このページを追加する</div>"
+    html += "</div>"    //id = uselistの終端
     html += "<p class = 'backbutton'>前のページへ戻る&nbsp;<span style = 'font-size:16px;'>↲</span></p>"
     html += "<p class = 'pushbutton'>次のページへ進む&nbsp;<span style = 'font-size:16px;'>↱</span></p>"
     html += "<div id = 'mojichange'><p>文字サイズ変更&nbsp;</p>"
@@ -125,7 +142,7 @@ function excssadd() {
     $('#newhtml').css('background', '#005731')
     $('#newhtml').css('color', 'white')
     $('h1').css('border-bottom', '1px solid white');
-    $('#extensiontype').css('display','flex')
+    $('#extensiontype').css('display', 'flex')
     $('#extensiontype').css('justify-content', 'space-evenly');
     $('#extensiontype').css('font-size', '20px');
     $('#extensiontype').css('text-align', 'center');
@@ -185,3 +202,18 @@ function ricss() {
     $('th').css('width', '195px');
     $('td').css('width', '200px');
 }
+
+//Json読み込み
+function getJSON(filename) {
+    return new Promise(function(r) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', chrome.extension.getURL(filename), true);
+        xhr.onreadystatechange = function() {
+            if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+                r(xhr.responseText);
+            }
+        };
+        xhr.send();
+    });
+}
+
