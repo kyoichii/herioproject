@@ -13,10 +13,6 @@ $(function () {
     cssadd()
     //拡張機能のhtml
     htmladd();
-    //拡張機能の履歴html追加
-    rihtml();
-    //履歴htmlのcss
-    ricss();
     // よく使うものクリックアクション
     $(document).ready(function () {
         $("#newhtml").find("#usemenu").click(function () {
@@ -131,7 +127,6 @@ function htmladd() {
     html += "<div class = 'bigbutton' style = 'font-size:18px;'>＋</div>"
     html += "</div>"
     html += "</div>"    //id = mojichangeの終端
-    html += "<p id = 'rireki'>履歴</p>"
     html += "</div>"    //id = extensiontypeの終端
     // 拡張機能のhtml文追加
     $("#newhtml").prepend(html);
@@ -148,60 +143,6 @@ function excssadd() {
     $('#extensiontype').css('text-align', 'center');
 }
 
-// 拡張機能の履歴機能html追加
-function rihtml() {
-    var rihtml = ""
-    rihtml += "<div class ='rireki'><hr></div>";
-    rihtml += "<table border=1 bgcolor=white width=98%>";
-    rihtml += "<thead>";
-    rihtml += "<tr>";
-    rihtml += "<th>操作履歴</th></tr></thead>";
-    rihtml += "<tbody>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr></tbody>";
-    $("#rirekihtml").prepend(rihtml);
-}
-
-
-// 拡張機能の履歴機能css追加
-function ricss() {
-    $('table').css('color', 'black');
-    $('thead').css('display', 'block');
-    $('tbody').css('display', 'block');
-    $('tbody').css('overflow-x', 'hidden');
-    $('tbody').css('overflow-y', 'scroll');
-    $('tbody').css('height', '200px');
-    $('th').css('width', '195px');
-    $('td').css('width', '200px');
-}
 
 //Json読み込み
 function getJSON(filename) {
@@ -216,4 +157,3 @@ function getJSON(filename) {
         xhr.send();
     });
 }
-
