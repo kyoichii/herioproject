@@ -110,7 +110,7 @@ function htmladd() {
     html += "<div class = 'bigbutton' style = 'font-size:18px;'>＋</div>"
     html += "</div>"
     html += "</div>"    //id = mojichangeの終端
-    html += "<input type=button value=リファラ表示 onclick=alert(document.referrer); />"
+    html += "<input id=rifer type=button value=あしあと onclick=alert(document.referrer); />"
     html += "</div>"    //id = extensiontypeの終端
     // 拡張機能のhtml文追加
     $("#newhtml").prepend(html);
@@ -125,4 +125,7 @@ function excssadd() {
     $('#extensiontype').css('justify-content', 'space-evenly');
     $('#extensiontype').css('font-size', '20px');
     $('#extensiontype').css('text-align', 'center');
+    rifer.style.backgroundColor = "#005731";
+    rifer.style.border = "#005731";
+    $('#rifer').css('font-size', '20px');
 }
