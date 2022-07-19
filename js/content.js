@@ -1,8 +1,3 @@
-
-//現在の文字の大きさを格納する変数
-var mojisize = 0;
-
-
 $(function () {
     console.log("コンテントスクリプトだよ");
     // div要素のclass名を取得
@@ -18,6 +13,9 @@ $(function () {
     htmladd();
     //モーダルウインドウhtmlのcss
     modalcss();
+    //拡張機能のcss
+    excssadd();
+
     // よく使うものクリックアクション
     $(document).ready(function () {
         $("#newhtml").find("#usemenu").click(function () {
@@ -27,10 +25,6 @@ $(function () {
             return false;
         })
     })
-    //拡張機能のcss
-    excssadd();
-    //ページが読み込まれたときにCookieを保存する関数
-    Cookiesave();
 
     //backボタンclickイベント
     $('.backbutton').on('click', function () {
@@ -57,23 +51,26 @@ $(function () {
     });
 })
 
-//閉じるjQuery
-$(function () {
-    $('.js-close').click(function () {
-      $('#overlay, .modal-window').fadeOut();
-    });
-  });
-
-// //本体に拡張機能の要素を追加
+//本体に拡張機能の要素を追加
 function cssadd() {
     $("#newhtml").css('position', 'fixed')
     $("#newhtml").css('width', '100%')
     $("#newhtml").css('z-index', '9999')
+    $("#newhtml").css('height', '100px')
 }
+
+
+//閉じるjQuery
+$(function () {
+    $('.js-close').click(function () {
+      $('#overlay, .modal-window').fadeOut()
+    })
+})
+
 
 //拡張機能のhtml追加
 function htmladd() {
-    var html = "<h1>Sylvanian Extension</h1>"
+    var html = "<h1 style = 'font-size:20px;'>Sylvanian Extension</h1>"
     html += "<div id = 'extensiontype'>"
     html += "<p id = 'usemenu'>よく使うもの</p>"
     html += "<p class = 'backbutton'>前のページへ戻る&nbsp;<span style = 'font-size:16px;'>↲</span></p>"
@@ -96,9 +93,9 @@ function htmladd() {
     // const imgWithUrl = `<img src="${imageUrl}" style="width: 200px; height: auto; background-color: lightgray;">`;
     // document.querySelector("input").insertAdjacentHTML("afterEnd", imgWithUrl);
     html += "<p class = 'ookiku'>文字を大きくしたいとき</p>"
-    html += "<img src='chrome-extension://lecaagacpbikmbkhoelmdfhocdnfepdi/image/plus.png' class='' alt='test' width='600px' height='600px'></img>"
+    html += "<img src='chrome-extension://abifekdabmalfbbeolahogokfhkkehao/image/plus.png' class='' alt='test' width='600px' height='600px'></img>"
     html += "<p class = 'tiisaku'>文字を小さくしたいとき</p>"
-    html += "<img src='chrome-extension://lecaagacpbikmbkhoelmdfhocdnfepdi/image/minus.png' class='' alt='test' width='600px' height='600px'></img>"
+    html += "<img src='chrome-extension://abifekdabmalfbbeolahogokfhkkehao/image/minus.png' class='' alt='test' width='600px' height='600px'></img>"
     html += "<button class='js-close button-close'>閉じる</button>"
     html += "</div>"
     // 拡張機能のhtml文追加
