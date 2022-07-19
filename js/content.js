@@ -51,6 +51,10 @@ $(function () {
         $('.modal-window').fadeIn();
     });
     
+    //足跡ボタンのクリックイベント
+    $('.legbutton').on('click', function () {
+       alert(document.referrer);
+    });
 })
 
 //閉じるjQuery
@@ -80,7 +84,7 @@ function htmladd() {
     html += "<div class = 'mojiSize' style = 'font-size:18px;'>文字が見ずらいとき</div>"
     html += "</div>"
     html += "</div>"    //id = mojichangeの終端
-    html += "<p id = 'rireki'>履歴</p>"
+    html += "<p class = 'legbutton'>あしあと&nbsp;</p>"
     html += "</div>"    //id = extensiontypeの終端
     //モーダルウィンドウの追加部分
     html += "<div class='modal-window'>"
