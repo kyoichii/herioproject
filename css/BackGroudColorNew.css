@@ -1,6 +1,6 @@
 body{
-    width: 200px;
-    height: 150px;
+    width: 705px;
+    height: 300px;
     background: #005731;
     color: white;
     text-align: center;
@@ -8,22 +8,22 @@ body{
   h2{
     font-weight:bold;
     border-bottom:1px solid white;
+    text-align: left;
+    font-size: 20px;
+    padding: 10px;
   }
   .colorsetfont{
     color: white;
   }
 
-  #button{
-    display: flex;
-    justify-content: space-evenly;
+  .title{
+    display: inline-block;
+    width: 200px;
+    padding: 10px;
   }
-  .p-button{
-    border: solid 1px white;
-    width: 25px;
-    height: 25px;
-  }
-  .m-button{
-    border: solid 1px white;
-    width: 25px;
-    height: 25px;
+
+  .message{
+    display: inline-block;
+    width: 450px;
+    padding: 10px;
   }
