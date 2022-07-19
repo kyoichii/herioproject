@@ -1,6 +1,6 @@
 {
     "name": "Sylvanian Extention",
-    "manifest_version": 3,
+    "manifest_version": 2,
     "version": "0.1",
     "description": "高齢者が若者みたいにインターネットを使いこなしてもらえるようにと開発を行なっている拡張機能です。",
     "action": {
@@ -20,5 +20,8 @@
                 "js/content.js"
             ]
         }
+    ],
+    "web_accessible_resources":[
+        "images/*.png"
     ]
 }
