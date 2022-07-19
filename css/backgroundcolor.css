@@ -51,6 +51,8 @@ body{
 
 .btn-primary{
   font-size: 25px;
+  right: 0%;
+  bottom: 0%;
 }
 
 .card p {
