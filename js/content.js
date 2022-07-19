@@ -7,16 +7,13 @@ $(function () {
     // div要素のclass名を取得
     var className = $("div").attr("class");
     console.log(className);
+    $("." + className).css('padding-top', '100px')
     $("body").prepend('<div id = "newhtml"></div>');
     $("#newhtml").after('<div></div>');
     //追加したdivのcssを編集
     cssadd()
     //拡張機能のhtml
     htmladd();
-    //拡張機能の履歴html追加
-    rihtml();
-    //履歴htmlのcss
-    ricss();
     //モーダルウインドウhtmlのcss
     modalcss();
     // よく使うものクリックアクション
@@ -56,37 +53,7 @@ $(function () {
     $('.smallbutton').on('click', function () {
         mojichange(2);
     });
-
 })
-
-//ページが読み込まれたときにCookieの値を保存する関数
-function Cookiesave() {
-    var nowurl = $(location).attr('href');      //現在のurlを取得
-    if (navigator.cookieEnabled) {
-        //一つ前のurlをmoveurlに格納して現在のurlをnowurlに格納
-        document.cookie = 'nowurl=' + nowurl
-
-
-        // //値を隠してCookie保存 (のちにパスワード保存のとこで使うかもしれないので保管。)
-        // let name = encodeURIComponent('田中')
-        // document.cookie = 'name=' + name
-    }
-}
-
-//Cookie値をgetする関数
-function getCookie(value) {
-    //Cokkieの値取得
-    var cookies = document.cookie;                      //全てのcookieを取り出して
-    var cookiesArray = cookies.split(';');              // ;で分割し配列に
-    for (var c of cookiesArray) {                       //一つ一つ取り出して
-        var cArray = c.split('=');                      //さらに=で分割して配列に
-        console.log(cArray)
-        if (cArray[0] == ' ' + value) {                 // 取り出したいkeyと合致したら
-            return (cArray[1])                           //value値をreturnする
-        }
-    }
-}
-
 
 //閉じるjQuery
 $(function () {
@@ -139,60 +106,6 @@ function excssadd() {
     $('#extensiontype').css('text-align', 'center');
 }
 
-// 拡張機能の履歴機能html追加
-function rihtml() {
-    var rihtml = ""
-    rihtml += "<div class ='rireki'><hr></div>";
-    rihtml += "<table border=1 bgcolor=white width=98%>";
-    rihtml += "<thead>";
-    rihtml += "<tr>";
-    rihtml += "<th>操作履歴</th></tr></thead>";
-    rihtml += "<tbody>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr>";
-    rihtml += "<tr>";
-    rihtml += "<td>ここに表示</td></tr></tbody>";
-    $("#rirekihtml").prepend(rihtml);
-}
-
-
-// 拡張機能の履歴機能css追加
-function ricss() {
-    $('table').css('color', 'black');
-    $('thead').css('display', 'block');
-    $('tbody').css('display', 'block');
-    $('tbody').css('overflow-x', 'hidden');
-    $('tbody').css('overflow-y', 'scroll');
-    $('tbody').css('height', '200px');
-    $('th').css('width', '195px');
-    $('td').css('width', '200px');
-}
 //モーダルウインドウのcss追加
 function modalcss(){
     $('.modal-window').css('display', 'none');

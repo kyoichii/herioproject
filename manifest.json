@@ -4,7 +4,7 @@
     "version": "0.1",
     "description": "高齢者が若者みたいにインターネットを使いこなしてもらえるようにと開発を行なっている拡張機能です。",
     "action": {
-        "default_popup": "/html/test.html"
+        "default_popup": "/html/index.html"
     },
     "permissions": [
         "tabs",
@@ -13,8 +13,7 @@
     "content_scripts": [
         {
             "matches": [
-                "https://www.google.com/",
-                "https://qiita.com/"
+                "<all_urls>"
             ],
             "js": [
                 "js/jquery-3.6.0.min.js",
