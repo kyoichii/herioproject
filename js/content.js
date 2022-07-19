@@ -78,11 +78,8 @@ function htmladd() {
     html += "<p id = 'usemenu'>よく使うもの</p>"
     html += "<p class = 'backbutton'>前のページへ戻る&nbsp;<span style = 'font-size:16px;'>↲</span></p>"
     html += "<p class = 'pushbutton'>次のページへ進む&nbsp;<span style = 'font-size:16px;'>↱</span></p>"
-    //html += "<div id = 'mojichange'><p>文字サイズ変更&nbsp;</p>"
     html += "<div class = 'mojiSize' style = 'font-size:18px;'>文字のサイズ変更</div>"
     html += "<div style = 'display:flex; justify-content: space-between;'>"
-    html += "<div class = 'mojiSize' style = 'font-size:18px;'>文字が見ずらいとき</div>"
-    html += "</div>"
     html += "</div>"    //id = mojichangeの終端
     html += "<p class = 'legbutton'>あしあと&nbsp;</p>"
     html += "</div>"    //id = extensiontypeの終端
@@ -104,8 +101,6 @@ function htmladd() {
     html += "<img src='chrome-extension://lecaagacpbikmbkhoelmdfhocdnfepdi/image/minus.png' class='' alt='test' width='600px' height='600px'></img>"
     html += "<button class='js-close button-close'>閉じる</button>"
     html += "</div>"
-    //オーバーレイの追加部分
-    //hmtl += "<div id='overlay' class='overlay'></div>"
     // 拡張機能のhtml文追加
     $("#newhtml").prepend(html);
 }
@@ -121,41 +116,6 @@ function excssadd() {
     $('#extensiontype').css('text-align', 'center');
 }
 
-//モーダルウインドウのcss追加
-function modalcss(){
-    $('.modal-window').css('display', 'none');
-    $('.modal-window').css('position', 'fixed');
-    $('.modal-window').css('top','50%');
-    $('.modal-window').css('left', '50%');
-    $('.modal-window').css('transform', 'translate(-50%, -50%)');
-    $('.modal-window').css('width', '300px');
-    $('.modal-window').css('height', '300px');
-    $('.modal-window').css('background-color', '#dfdddd');
-    $('.modal-window').css('border-radius', '5px');
-    $('.modal-window').css('z-index', '11');
-    $('.modal-window').css('padding', '2rem');
-    //閉じるボタン
-    $('.button-close').css('position', 'absolute');
-    $('.button-close').css('top', '50%');
-    $('.button-close').css('left', '50%');
-    $('.button-close').css('transform', 'translate(-50%, -50%)');
-    $('.button-close').css('width', '200px');
-    $('.button-close').css('padding', '1em');
-    $('.button-close').css('background-color', '#c96931');
-    $('.button-close').css('color', '#eaeaea');
-    $('.button-close').css('border-radius', '20rem');
-    $('.button-close').css('cursor', 'pointer');
-    /*オーバーレイ
-    $('.overlay').css('display', 'none');
-    $('.overlay').css('position', '');
-    $('.overlay').css('top', '0');
-    $('.overlay').css('left', '0');
-    $('.overlay').css('background-color', 'rgba(0, 0, 0, 0.5)');
-    $('.overlay').css('width', '100%');
-    $('.overlay').css('height', '100%');
-    $('.overlay').css('z-index', '10');
-    */
-}
 //モーダルウインドウのcss追加
 function modalcss(){
     $('.modal-window').css('display', 'none');
@@ -185,15 +145,4 @@ function modalcss(){
     $('.ookiku').css('font-size', '50px');
     $('.tiisaku').css('color', 'black');
     $('.tiisaku').css('font-size', '50px');
-
-    /*オーバーレイ
-    $('.overlay').css('display', 'none');
-    $('.overlay').css('position', '');
-    $('.overlay').css('top', '0');
-    $('.overlay').css('left', '0');
-    $('.overlay').css('background-color', 'rgba(0, 0, 0, 0.5)');
-    $('.overlay').css('width', '100%');
-    $('.overlay').css('height', '100%');
-    $('.overlay').css('z-index', '10');
-    */
 }
