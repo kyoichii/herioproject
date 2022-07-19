@@ -48,6 +48,11 @@ $(function () {
     $('.smallbutton').on('click', function () {
         mojichange(className, 2, mojisize);
     });
+
+    //足跡ボタンのクリックイベント
+    $('.legbutton').on('click', function () {
+       alert(document.referrer);
+    });
 })
 
 //ページが読み込まれたときにCookieの値を保存する関数
@@ -110,7 +115,7 @@ function htmladd() {
     html += "<div class = 'bigbutton' style = 'font-size:18px;'>＋</div>"
     html += "</div>"
     html += "</div>"    //id = mojichangeの終端
-    html += "<input id=rifer type=button value=あしあと onclick=alert(document.referrer); />"
+    html += "<p class = 'legbutton'>あしあと&nbsp;</p>"
     html += "</div>"    //id = extensiontypeの終端
     // 拡張機能のhtml文追加
     $("#newhtml").prepend(html);
@@ -125,7 +130,7 @@ function excssadd() {
     $('#extensiontype').css('justify-content', 'space-evenly');
     $('#extensiontype').css('font-size', '20px');
     $('#extensiontype').css('text-align', 'center');
-    rifer.style.backgroundColor = "#005731";
-    rifer.style.border = "#005731";
-    $('#rifer').css('font-size', '20px');
+    //rifer.style.backgroundColor = "#005731";
+    //rifer.style.border = "#005731";
+    //$('#rifer').css('font-size', '20px');
 }
