@@ -2,6 +2,7 @@
 //現在の文字の大きさを格納する変数
 var mojisize = 0;
 
+
 $(function () {
     console.log("コンテントスクリプトだよ");
     // div要素のclass名を取得
@@ -9,6 +10,7 @@ $(function () {
     console.log(className);
     $("body").prepend('<div id = "newhtml"></div>');
     $("#newhtml").after('<div></div>');
+    
     //追加したdivのcssを編集
     cssadd()
     //拡張機能のhtml
@@ -47,14 +49,12 @@ $(function () {
         window.history.forward();
     });
 
-    //プラスボタン処理
-    $('.bigbutton').on('click', function () {
+    //ボタン処理
+    $('.mojiSize').on('click', function () {
         $('.modal-window').fadeIn();
+
     });
-    //マイナスボタン処理
-    $('.smallbutton').on('click', function () {
-        $('.modal-window2').fadeIn();
-    });
+    
 
 })
 
@@ -108,17 +108,30 @@ function htmladd() {
     html += "<p id = 'usemenu'>よく使うもの</p>"
     html += "<p class = 'backbutton'>前のページへ戻る&nbsp;<span style = 'font-size:16px;'>↲</span></p>"
     html += "<p class = 'pushbutton'>次のページへ進む&nbsp;<span style = 'font-size:16px;'>↱</span></p>"
-    html += "<div id = 'mojichange'><p>文字サイズ変更&nbsp;</p>"
+    //html += "<div id = 'mojichange'><p>文字サイズ変更&nbsp;</p>"
+    html += "<div class = 'mojiSize' style = 'font-size:18px;'>文字のサイズ変更</div>"
     html += "<div style = 'display:flex; justify-content: space-between;'>"
-    html += "<div class = 'smallbutton' style = 'font-size:18px;'>ー</div>"
-    html += "<div class = 'bigbutton' style = 'font-size:18px;'>＋</div>"
+    html += "<div class = 'mojiSize' style = 'font-size:18px;'>文字が見ずらいとき</div>"
     html += "</div>"
     html += "</div>"    //id = mojichangeの終端
     html += "<p id = 'rireki'>履歴</p>"
     html += "</div>"    //id = extensiontypeの終端
     //モーダルウィンドウの追加部分
     html += "<div class='modal-window'>"
-    html += ""
+    //＋画像と－画像のPathのurlを取得
+    const imageplusPath = 'image/plus.png';
+    const imageminusPath = 'image/minus.png';
+    const imageplusUrl = chrome.extension.getURL(imageplusPath)
+    const imageminusUrl = chrome.extension.getURL(imageminusPath)
+    //画像を取得できているのかを確認
+    console.log(imageplusUrl)
+    console.log(imageminusUrl)
+    // const imgWithUrl = `<img src="${imageUrl}" style="width: 200px; height: auto; background-color: lightgray;">`;
+    // document.querySelector("input").insertAdjacentHTML("afterEnd", imgWithUrl);
+    html += "<p class = 'ookiku'>文字を大きくしたいとき</p>"
+    html += "<img src='chrome-extension://lecaagacpbikmbkhoelmdfhocdnfepdi/image/plus.png' class='' alt='test' width='600px' height='600px'></img>"
+    html += "<p class = 'tiisaku'>文字を小さくしたいとき</p>"
+    html += "<img src='chrome-extension://lecaagacpbikmbkhoelmdfhocdnfepdi/image/minus.png' class='' alt='test' width='600px' height='600px'></img>"
     html += "<button class='js-close button-close'>閉じる</button>"
     html += "</div>"
     //オーバーレイの追加部分
@@ -199,15 +212,15 @@ function modalcss(){
     $('.modal-window').css('top','50%');
     $('.modal-window').css('left', '50%');
     $('.modal-window').css('transform', 'translate(-50%, -50%)');
-    $('.modal-window').css('width', '300px');
-    $('.modal-window').css('height', '300px');
+    $('.modal-window').css('width', '600px');
+    $('.modal-window').css('height', '600px');
     $('.modal-window').css('background-color', '#dfdddd');
     $('.modal-window').css('border-radius', '5px');
     $('.modal-window').css('z-index', '11');
     $('.modal-window').css('padding', '2rem');
     //閉じるボタン
     $('.button-close').css('position', 'absolute');
-    $('.button-close').css('top', '50%');
+    $('.button-close').css('top', '90%');
     $('.button-close').css('left', '50%');
     $('.button-close').css('transform', 'translate(-50%, -50%)');
     $('.button-close').css('width', '200px');
@@ -216,6 +229,12 @@ function modalcss(){
     $('.button-close').css('color', '#eaeaea');
     $('.button-close').css('border-radius', '20rem');
     $('.button-close').css('cursor', 'pointer');
+    //文字
+    $('.ookiku').css('color', 'black');
+    $('.ookiku').css('font-size', '50px');
+    $('.tiisaku').css('color', 'black');
+    $('.tiisaku').css('font-size', '50px');
+
     /*オーバーレイ
     $('.overlay').css('display', 'none');
     $('.overlay').css('position', '');
